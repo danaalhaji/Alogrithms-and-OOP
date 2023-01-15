@@ -77,8 +77,23 @@ class LinkedList:
                     index.data = temp
                 index=index.next
             current = current.next
-
-
+# find a size of linked list
+    def _size(self):
+        current = self.head
+        count=0
+        while(current is not None):
+            count +=1
+            current =current.next
+        return count
+# find item at a specific index
+    def findAtIndex(self, index):
+        current=self.head
+        count =0
+        while(current is not None):
+            if(count == index):
+                return current.data
+            current=current.next
+            count +=1
 #   Linked List with a single node
 LL = LinkedList()
 LL.insert(4)
@@ -102,8 +117,10 @@ LL.insert(1)
 LL.insert(2)
 LL.insert(6)
 LL.insert(4)
-print("sorted Linked List")
-LL._sort()
+LL.insert(12)
 LL.traverse()
-
+print("size is:")
+print(LL._size())
+x=LL.findAtIndex(5)
+print(x)
 
