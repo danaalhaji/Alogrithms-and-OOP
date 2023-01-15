@@ -53,22 +53,30 @@ class LinkedList:
         current = None
 #delete at specfic position
     def deletePosition(self, index):
-        current = self.head
-        count = 0
-        if(index == 0 and current is not None):
-            self.head = current.next
-            current = None
-        current = current.next
-        while(current is not None):
-            count += count
-            if count == index:
-                break
-        previous = current
-        current = current.next
-        if(current == None):
+        if index == 0:
+            temp = self.head
+            self.head = self.head.next
+            temp = None
+        else:
+            current=self.head
+            for x in range(index-1):
+                current= current.next
+            current.next = current.next.next
+# sort ll
+    def _sort(self):
+        current= self.head
+        index= None
+        if self.head is None:
             return
-        previous.next = current.next
-        current = None
+        while(current is not None):
+            index= current.next
+            while(index is not None):
+                if (current.data > index.data):
+                    temp = current.data
+                    current.data = index.data
+                    index.data = temp
+                index=index.next
+            current = current.next
 
 
 #   Linked List with a single node
@@ -88,6 +96,14 @@ print("the linked list after delete")
 LL.traverse()
 LL.deletePosition(0)
 print("the linked list after delete")
+LL.traverse()
+LL.insert(3)
+LL.insert(1)
+LL.insert(2)
+LL.insert(6)
+LL.insert(4)
+print("sorted Linked List")
+LL._sort()
 LL.traverse()
 
 
