@@ -63,7 +63,10 @@ class LinkedList:
             for x in range(index-1):
                 current= current.next
             current.next = current.next.next
-#   Linked List with a single node
+# Sort a linked list uing merge sort
+# Time Complexity: The merge sort of linked list takes O(n log n) time
+# Auxiliary Space: O(n log n)
+        
 LL = LinkedList()
 LL.insert(4)
 LL.insert(5)
@@ -81,5 +84,3 @@ LL.traverse()
 LL.deletePosition(0)
 print("the linked list after delete")
 LL.traverse()
-
-
